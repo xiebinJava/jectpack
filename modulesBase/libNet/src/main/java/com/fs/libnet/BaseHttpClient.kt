@@ -66,14 +66,6 @@ abstract class BaseHttpClient() : IApiEnvironment {
             supportCookie()?.let {
                 cookieJar(it)
             }
-
-//            //缓存支持
-//            supportCache()?.let {
-//                cache(it)
-//                //增加网络拦截器
-//                addNetworkInterceptor(networkCacheInterceptor)
-//                addInterceptor(appCacheInterceptor)
-//            }
         }.build()
     }
 
@@ -124,28 +116,9 @@ abstract class BaseHttpClient() : IApiEnvironment {
         return retrofit1.create(ApiService::class.java)
     }
 
-    /**
-     * 应用缓存拦截器  没有缓存抛出504
-     * 去掉缓存处理
-     */
-    private val appCacheInterceptor = Interceptor { chain ->
-        var request = chain.request()
-        request.newBuilder().cacheControl(CacheControl.FORCE_NETWORK).build()
-        chain.proceed(request)
-    }
 
 
-//    /**
-//     * TODO  响应最先返回
-//     * 网络缓存拦截器
-//     */
-//    private val networkCacheInterceptor = Interceptor { chain -> //服务器可能不支持缓存配置,拦截去除服务器干扰,添加自定义配置
-//        chain.proceed(chain.request())
-//            .newBuilder()
-//            .removeHeader("pragma")
-//            .header("Cache-Control", "max-age=" + onlineCacheTime())
-//            .build()
-//    }
+
 
     /**
      * 通用请求配置

@@ -5,7 +5,8 @@ import okhttp3.Request
 
 object HttpClient : BaseHttpClient(){
 
-    private const val SERVER_URL_RELEASE = "https://www.fs.com/app/v1/"
+    //https://www.wanandroid.com/blog/show/2
+    private const val SERVER_URL_RELEASE = "https://www.wanandroid.com"
 
 
 

@@ -17,14 +17,14 @@ object ResponseCodeHandler {
             val jsonObject = JSONObject(response)
             if (jsonObject.has("code")) {
                 val code = jsonObject.getInt("code")
-                handleV1ResponseCode(code)
+                handleResponseCode(code)
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    private fun handleV1ResponseCode(code: Int) {
+    private fun handleResponseCode(code: Int) {
         when (code) {
             401 -> {//Token 失效
 //                EventBus.getDefault().post(LoginInvalidEvent.TokenUnauthorizedEvent())

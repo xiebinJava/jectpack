@@ -9,7 +9,7 @@
         android:name="com.fs.libbase.BaseApplication"
         android:theme="@style/Theme.Jectpack">
         <activity
-            android:name=".CategoryActivity"
+            android:name=".product.ui.ProductDetailActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

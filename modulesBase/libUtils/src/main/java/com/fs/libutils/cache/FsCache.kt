@@ -1,5 +1,3 @@
-import cn.com.sf.commonlib.cache.BaseCache
-import cn.com.sf.commonlib.cache.MMKVCache
 
 
 /**
