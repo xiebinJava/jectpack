@@ -1,0 +1,40 @@
+def rp = rootProject.ext
+apply plugin :'com.android.library'
+apply plugin :'org.jetbrains.kotlin.android'
+apply plugin :'kotlin-kapt'
+
+android {
+    namespace 'com.fs.modulepay'
+    compileSdk rp.android.compileSdk
+
+    defaultConfig {
+        minSdk rp.android.minsdk
+        targetSdk rp.android.targetSdk
+        versionCode rp.android.versionCode
+        versionName rp.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments { arg("AROUTER_MODULE_NAME", project.getName()) }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(path: ':modulesBase:libBase')
+    kapt rp.libARouterCompiler
+
+}

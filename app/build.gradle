@@ -1,0 +1,56 @@
+def rp = rootProject.ext
+
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    namespace 'com.fs.jectpack'
+    compileSdk rp.android.compileSdk
+
+    defaultConfig {
+        applicationId rp.applicationID.app
+        minSdk rp.android.minSdk
+        targetSdk rp.android.targetSdk
+        versionCode rp.android.versionCode
+        versionName rp.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments { arg("AROUTER_MODULE_NAME", project.getName()) }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+
+
+
+
+dependencies {
+    if (!rp.isDebug){
+        implementation project(path: ':modulesCore:home')
+        implementation project(path: ':modulesCore:category')
+    }
+    implementation project(path: ':modulesBase:libBase')
+    implementation project(path: ':modulesPublic:modulePay')
+    kapt rp.libARouterCompiler
+
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "jectpack"
+include ':app'
+include ':modulesCore:home'
+include ':modulesBase:libBase'
+include ':modulesPublic:modulePay'
+include ':modulesCore:category'
+include ':modulesBase:libNet'
+include ':modulesBase:libUtils'

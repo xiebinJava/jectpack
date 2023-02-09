@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.4.0' apply false
+    id 'com.android.library' version '7.4.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.21' apply false
+}
+
+ext {
+    isDebug = false //调试和正式模式切换
+
+    android = [
+            compileSdk : 33,
+            minSdk     : 24,
+            targetSdk  : 33,
+            versionCode: 1,
+            versionName: "1.0"
+    ]
+
+    applicationID = [
+            "app"     : "com.fs.jectpack",
+            "main"    : "com.fs.module.home",
+            "category": "com.fs.module.category"
+    ]
+
+    library = [
+            "appcompat"       : 'androidx.appcompat:appcompat:1.6.0',
+            "material"        : 'com.google.android.material:material:1.8.0',
+            "constraintlayout": 'androidx.constraintlayout:constraintlayout:2.1.4'
+    ]
+
+    libARouter = "com.alibaba:arouter-api:1.5.2"
+    libARouterCompiler = "com.alibaba:arouter-compiler:1.5.2"
+    //网络框架
+    // 第一条依赖是下载Retrofit、OkHttp和Okio这几个库，我们就不需要手动引入OkHttp库了；
+    //第二条依赖是一个Retrofit的转换库，它是借助GSON来解析JSON数据的，所以也会将GSON库一起下载。
+    retrofit = "com.squareup.retrofit2:retrofit:2.6.0"
+    retrofitConverterGson = "com.squareup.retrofit2:converter-gson:2.0.0"
+    okHttp3Log = "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    mmkv = "com.tencent:mmkv-static:1.2.8"
+
+}
