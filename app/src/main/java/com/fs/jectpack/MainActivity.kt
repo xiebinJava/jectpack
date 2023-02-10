@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
 
-import com.fs.libbase.base.BaseActivity
 import com.fs.libutils.constants.RoutConstant
 
 class MainActivity : AppCompatActivity() {

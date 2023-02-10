@@ -1,4 +1,4 @@
-package com.fs.libbase.base
+package com.fs.libbase.mvvmbase
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
-abstract class BaseActivity<VM : BaseViewModel>(var layoutId: Int) : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel>(private var layoutId: Int) : AppCompatActivity() {
 
      var viewModel: VM? = null
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -38,12 +38,8 @@ android {
 
 
 dependencies {
-    api 'androidx.core:core-ktx:1.7.0'
-    api rp.library.appcompat
-    api rp.library.material
-    api rp.library.constraintlayout
-    api rp.libARouter
-    kapt rp.libARouterCompiler
+
     api  project(path: ':modulesBase:libNet')
+
 
 }

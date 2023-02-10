@@ -1,8 +1,9 @@
 package com.fs.module.category.product.ui
 
 import android.util.Log
+import android.widget.Button
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.fs.libbase.base.BaseActivity
+import com.fs.libbase.mvvmbase.BaseActivity
 import com.fs.libutils.constants.RoutConstant
 import com.fs.module.category.R
 
@@ -14,7 +15,11 @@ class ProductDetailActivity : BaseActivity<ProductDetailViewModel>(R.layout.acti
     }
 
     override fun initViews() {
-        Log.e("xiebin", viewModel?.testInt.toString())
+        val button = findViewById<Button>(R.id.bt_product)
+        button.setOnClickListener {
+            viewModel?.getProductMessage()
+        }
+
     }
 
 

@@ -1,8 +1,18 @@
 package com.fs.module.category.product.ui
 
-import com.fs.libbase.base.BaseViewModel
+import androidx.lifecycle.viewModelScope
+import com.fs.libbase.mvvmbase.BaseViewModel
+import com.fs.module.category.product.data.ProductDetailRepository
+import kotlinx.coroutines.launch
 
 class ProductDetailViewModel : BaseViewModel() {
 
-    val testInt: Int = 10
+    val productDetailRepository : ProductDetailRepository by lazy {
+        ProductDetailRepository()
+    }
+    fun getProductMessage(){
+         viewModelScope.launch {
+             productDetailRepository
+         }
+    }
 }

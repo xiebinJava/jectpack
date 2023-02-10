@@ -2,11 +2,11 @@ def rp = rootProject.ext
 if (rp.isDebug) {
     apply plugin: 'com.android.application'
     apply plugin: 'org.jetbrains.kotlin.android'
-    apply plugin :'kotlin-kapt'
+    apply plugin: 'kotlin-kapt'
 } else {
     apply plugin: 'com.android.library'
     apply plugin: 'org.jetbrains.kotlin.android'
-    apply plugin :'kotlin-kapt'
+    apply plugin: 'kotlin-kapt'
 }
 
 android {
@@ -43,10 +43,10 @@ android {
         jvmTarget = '1.8'
     }
     sourceSets {
-        main{
-            if (rootProject.isDebug){
+        main {
+            if (rootProject.isDebug) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            }else {
+            } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
@@ -57,7 +57,6 @@ dependencies {
 
     implementation project(path: ':modulesBase:libBase')
     kapt rp.libARouterCompiler
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

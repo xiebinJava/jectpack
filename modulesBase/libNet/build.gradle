@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 def rp = rootProject.ext
 android {
@@ -31,8 +32,7 @@ android {
 }
 
 dependencies {
-    api rp.retrofit
-    api rp.retrofitConverterGson
-    api rp.okHttp3Log
+
     api  project(path: ':modulesBase:libUtils')
+
 }

@@ -1,4 +1,4 @@
-package com.fs.libbase.base
+package com.fs.libbase.mvvmbase
 
 import androidx.lifecycle.ViewModel
 
