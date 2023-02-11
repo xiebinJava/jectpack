@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit
  *
  */
 
-abstract class BaseHttpClient() : IApiEnvironment {
+abstract class BaseHttpClient : IApiEnvironment {
     private var timeOut: Long = 60
     private var isDebug: Boolean = false
 
@@ -89,7 +89,7 @@ abstract class BaseHttpClient() : IApiEnvironment {
 
 
     val retrofit: Retrofit by lazy {
-        isDebug = FsCache.getBoolean(Constant.IS_DEBUG, false)!!
+        isDebug = BuildConfig.DEBUG
         Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
