@@ -2,6 +2,7 @@ def rp = rootProject.ext
 apply plugin :'com.android.library'
 apply plugin :'org.jetbrains.kotlin.android'
 apply plugin :'kotlin-kapt'
+apply plugin: 'com.google.dagger.hilt.android'
 
 android {
     namespace 'com.fs.libbase'
@@ -38,7 +39,8 @@ android {
 
 
 dependencies {
-
+    implementation rp.hilt
+    kapt rp.hiltCompiler
     api  project(path: ':modulesBase:libNet')
 
 

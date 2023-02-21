@@ -3,10 +3,12 @@ if (rp.isDebug) {
     apply plugin: 'com.android.application'
     apply plugin: 'org.jetbrains.kotlin.android'
     apply plugin :'kotlin-kapt'
+    apply plugin: 'com.google.dagger.hilt.android'
 } else {
     apply plugin: 'com.android.library'
     apply plugin: 'org.jetbrains.kotlin.android'
     apply plugin :'kotlin-kapt'
+    apply plugin: 'com.google.dagger.hilt.android'
 }
 
 
@@ -59,6 +61,8 @@ android {
 dependencies {
     implementation project(path: ':modulesBase:libBase')
     kapt rp.libARouterCompiler
+    implementation rp.hilt
+    kapt rp.hiltCompiler
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

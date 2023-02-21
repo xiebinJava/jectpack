@@ -13,7 +13,6 @@ import org.json.JSONObject
 object ResponseCodeHandler {
     fun handleV1ApiResponse(response: String) {
         try {
-//            LogUtils.json(LogUtils.I, response)
             val jsonObject = JSONObject(response)
             if (jsonObject.has("code")) {
                 val code = jsonObject.getInt("code")

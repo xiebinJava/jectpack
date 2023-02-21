@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 def rp = rootProject.ext
@@ -56,4 +57,8 @@ dependencies {
     api rp.retrofit
     api rp.retrofitConverterGson
     api rp.okHttp3Log
+    api rp.library.activityKtx
+    api rp.library.fragmentKtx
+    api rp.hilt
+    kapt rp.hiltCompiler
 }

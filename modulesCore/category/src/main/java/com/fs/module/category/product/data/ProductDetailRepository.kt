@@ -4,8 +4,11 @@ import com.fs.libbase.netbase.BaseRepository
 import com.fs.libbase.netbase.DataResult
 import com.fs.libnet.HttpClient
 import com.fs.module.category.product.ProductApiService
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ProductDetailRepository : BaseRepository() {
+@Singleton
+class ProductDetailRepository @Inject constructor() : BaseRepository() {
 
 
     private val productApiService: ProductApiService by lazy {
