@@ -55,6 +55,13 @@ android {
             }
         }
     }
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = rp.compose_version
+    }
 
 }
 

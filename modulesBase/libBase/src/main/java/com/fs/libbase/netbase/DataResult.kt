@@ -10,23 +10,17 @@ sealed class DataResult<out T> {
     /**
      * 请求成功
      */
-    data class Success<T>(val data: T?, var pageResult: PageResult? = PageResult()) : DataResult<T>()
+    data class Success<T>(val data: T?) : DataResult<T>()
 
     /**
      *  业务错误
      */
-    data class Failure(val code: Int?, val message: String?, val errors: Any?) :
+    data class Error(val code: Int?, val message: String?, val errors: Any?) :
         DataResult<Nothing>()
 
-    /**
-     * 接口异常
-     */
-    data class Error(val error: Throwable?) : DataResult<Nothing>()
 
-    /**
-     * 数据加载中状态
-     */
-    class Loading(val isDialog: Boolean) : DataResult<Nothing>()
+
+
 
 
 }

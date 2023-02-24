@@ -14,6 +14,7 @@ import retrofit2.HttpException
  */
 open class BaseRepository {
 
+
     /**
      * 统一异常处理
      */
@@ -28,14 +29,18 @@ open class BaseRepository {
                 if (bodyMsg != null && CommonUtils.getJSONType(bodyMsg)) {
                     val errorBean = Gson().fromJson(bodyMsg, ErrorBean::class.java)
                     if (errorBean != null)
-                        return DataResult.Failure(
+                        return DataResult.Error(
                             errorBean.code,
                             errorBean.message,
                             errorBean.errors
                         )
                 }
             }
-            DataResult.Error(e)
+            DataResult.Error(
+                800,
+                "本地请求异常",
+                null
+            )
         }
     }
 
@@ -51,12 +56,10 @@ open class BaseRepository {
                 DataResult.Success(response.data)
             }
             200 -> {
-                DataResult.Success(response.data).apply {
-                    pageResult?.successMeg = response.message
-                }
+                DataResult.Success(response.data)
             }
             else -> {//TODO 部分异常直接从异常抛出 需要手动解析
-                DataResult.Failure(response.code, response.message, null)
+                DataResult.Error(response.code, response.message, null)
             }
         }
 

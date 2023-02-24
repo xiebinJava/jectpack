@@ -6,12 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.fs.libbase.mvcbase.BaseComposeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
-abstract class BaseActivity(private var layoutId: Int) : AppCompatActivity() {
+abstract class BaseActivity(private var layoutId: Int) : BaseComposeActivity() {
 
-//    var viewModel: VM? by viewModels()
+    //    var viewModel: VM? by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId)

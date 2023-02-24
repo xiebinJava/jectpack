@@ -36,6 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = rp.compose_version
+    }
 }
 
 
@@ -61,4 +68,9 @@ dependencies {
     api rp.library.fragmentKtx
     api rp.hilt
     kapt rp.hiltCompiler
+    api rp.library.composeUi
+    api rp.library.composeMaterial
+    api rp.library.activityCompose
+    api rp.library.composeTool
+    api rp.library.viewModelCompose
 }
