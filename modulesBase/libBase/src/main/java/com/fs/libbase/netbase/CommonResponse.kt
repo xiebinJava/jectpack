@@ -14,8 +14,8 @@ data class CommonResponse<T>(
     val code: Int,
     val `data`: T,
     val errors: List<Any>,
-    val message: String,
-    val status: String
+    val errorMsg: String,
+    val errorCode: Int
 ) {
     fun isSuccess() = code == 200
 }

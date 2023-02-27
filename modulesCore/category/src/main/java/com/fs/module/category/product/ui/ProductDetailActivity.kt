@@ -85,10 +85,10 @@ class ProductDetailActivity : BaseComposeActivity() {
                                     fontStyle = FontStyle(1),
                                     fontSize = 20.sp
                                 )
+
                                 Text(
                                     text = dataInfo.datas[it].author,
-                                    fontSize = 15.sp,
-                                    color = Color.Blue
+                                    fontSize = 10.sp
                                 )
                             }
 

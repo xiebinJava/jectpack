@@ -1,7 +1,12 @@
 package com.fs.libnet
 
+import FsCache
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import okhttp3.CookieJar
 import okhttp3.Request
+import okhttp3.Response
+
 
 object HttpClient : BaseHttpClient(){
 
@@ -17,7 +22,11 @@ object HttpClient : BaseHttpClient(){
             .build()
     }
 
-    override fun supportCookie(): CookieJar? =null
+    override fun supportCookie(): CookieJar {
+
+        return FsCookie()
+    }
+
 
     override fun getNormalUrl(): String  = SERVER_URL_RELEASE
 

@@ -10,6 +10,7 @@ import com.fs.libbase.netbase.DataResult
 import com.fs.module.category.product.data.ProductDetailRepository
 import com.fs.module.category.product.domain.FormatDataProductCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -47,6 +48,9 @@ class ProductDetailViewModel @Inject constructor(
 
 
             }
+
+            productDetailRepository.getDetail()
+
         }
     }
 }

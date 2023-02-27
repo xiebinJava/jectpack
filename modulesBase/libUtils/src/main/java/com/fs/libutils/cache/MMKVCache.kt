@@ -49,28 +49,28 @@ class MMKVCache : ICacheFunction {
         return false
     }
 
-    override fun getString(key: String, @Nullable default: String): String? {
+    override fun getString(key: String, default: String): String? {
         return mmkv?.decodeString(key, default)
     }
 
-    override fun getInt(key: String, @Nullable default: Int): Int? {
+    override fun getInt(key: String,  default: Int): Int? {
         return mmkv?.decodeInt(key, default)
     }
 
-    override fun getDouble(key: String, @Nullable default: Double): Double? {
+    override fun getDouble(key: String,  default: Double): Double? {
         return mmkv?.decodeDouble(key, default)
     }
 
-    override fun getFloat(key: String, @Nullable default: Float): Float? {
+    override fun getFloat(key: String,  default: Float): Float? {
         return mmkv?.decodeFloat(key, default)
     }
 
-    override fun getLong(key: String, @Nullable default: Long): Long? {
+    override fun getLong(key: String,  default: Long): Long? {
         return mmkv?.decodeLong(key, default)
 
     }
 
-    override fun getBoolean(key: String, @Nullable default: Boolean): Boolean? {
+    override fun getBoolean(key: String,  default: Boolean): Boolean? {
         return mmkv?.decodeBool(key, default)
     }
 

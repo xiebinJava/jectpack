@@ -53,13 +53,22 @@ open class BaseRepository {
         return when (response.code) {
             //wanandroid 的 api 没有code
             0 -> {
-                DataResult.Success(response.data)
+                if (response.errorCode == 0){
+                    DataResult.Success(response.data)
+                }else{
+                    DataResult.Error(response.code, response.errorMsg, null)
+                }
             }
             200 -> {
-                DataResult.Success(response.data)
+                if (response.errorCode == 0){
+                    DataResult.Success(response.data)
+                }else{
+                    DataResult.Error(response.code, response.errorMsg, null)
+                }
+
             }
             else -> {//TODO 部分异常直接从异常抛出 需要手动解析
-                DataResult.Error(response.code, response.message, null)
+                DataResult.Error(response.code, response.errorMsg, null)
             }
         }
 

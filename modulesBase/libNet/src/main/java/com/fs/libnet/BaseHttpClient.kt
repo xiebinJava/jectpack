@@ -62,6 +62,7 @@ abstract class BaseHttpClient : IApiEnvironment {
                 logging.level = HttpLoggingInterceptor.Level.BODY
                 addInterceptor(logging)
             }
+
             //支持Cookie
             supportCookie()?.let {
                 cookieJar(it)
@@ -79,7 +80,8 @@ abstract class BaseHttpClient : IApiEnvironment {
             source.request(Long.MAX_VALUE)
             val buffer = source.buffer
             val contentType = contentType()
-            val charset: Charset = contentType?.charset(StandardCharsets.UTF_8) ?: StandardCharsets.UTF_8
+            val charset: Charset =
+                contentType?.charset(StandardCharsets.UTF_8) ?: StandardCharsets.UTF_8
             if (contentLength() != 0L) {
                 val json = buffer.clone().readString(charset)
                 ResponseCodeHandler.handleV1ApiResponse(json)
@@ -115,9 +117,6 @@ abstract class BaseHttpClient : IApiEnvironment {
     inline fun <reified ApiService> getCommunity(): ApiService {
         return retrofit1.create(ApiService::class.java)
     }
-
-
-
 
 
     /**

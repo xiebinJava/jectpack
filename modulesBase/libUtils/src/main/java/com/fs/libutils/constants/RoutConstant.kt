@@ -6,5 +6,6 @@ object RoutConstant {
         const val HOME_ACTIVITY = "/home/HomeActivity"
         const val CATEGORY_ACTIVITY = "/category/CategoryActivity"
         const val PRODUCT_DETAIL_ACTIVITY = "/category/ProductDetailActivity"
+        const val PRODUCT_LOGIN = "/login/LoginActivity"
     }
 }
