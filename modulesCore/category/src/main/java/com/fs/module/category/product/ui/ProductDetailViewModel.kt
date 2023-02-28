@@ -10,7 +10,7 @@ import com.fs.libbase.netbase.DataResult
 import com.fs.module.category.product.data.ProductDetailRepository
 import com.fs.module.category.product.domain.FormatDataProductCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,7 +20,7 @@ class ProductDetailViewModel @Inject constructor(
     private val formatDataProductCase: FormatDataProductCase
 ) :BaseViewModel() {
 
-    var state by mutableStateOf(ProductState())
+    var state by mutableStateOf(ProductState(emptyList()))
         private set
 
 
@@ -34,23 +34,72 @@ class ProductDetailViewModel @Inject constructor(
                 is DataResult.Success -> {
                     state = state.copy(
                         isLoading = false,
-                        dataInfo = detail.data,
+                        dataList = detail.data?.datas!!,
                         error = null
                     )
+
                 }
                 is DataResult.Error -> {
                     state = state.copy(
-                        dataInfo = null,
                         isLoading = false,
                         error = detail.errors.toString()
                     )
                 }
-
-
             }
+        }
+    }
 
-            productDetailRepository.getDetail()
+
+
+    fun addItems(){
+        viewModelScope.launch {
+            state = state.copy(
+                isLoading = true,
+                error = null
+            )
+            delay(2000)
+            state.addItem(state.dataAdd)
+            state = state.copy(
+                isLoading = false,
+                dataList = state.items
+            )
+
 
         }
     }
+
+    fun removeItems(){
+        viewModelScope.launch {
+            state = state.copy(
+                isLoading = true,
+                error = null
+            )
+            delay(2000)
+            state.removeItem(0)
+            state = state.copy(
+                isLoading = false,
+                dataList = state.items
+            )
+
+
+        }
+    }
+
+    fun getItemChange(index: Int){
+        viewModelScope.launch {
+            state = state.copy(
+                isLoading = true,
+                error = null
+            )
+            delay(2000)
+            state.dataList[index].title = "你点击我了一下哦"
+            state = state.copy(
+                isLoading = false,
+                dataList = state.items
+            )
+
+
+        }
+    }
+
 }

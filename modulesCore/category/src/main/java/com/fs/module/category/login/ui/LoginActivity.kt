@@ -44,8 +44,8 @@ class LoginActivity : BaseComposeActivity() {
         val emailInput = findViewById<TextInputEditText>(R.id.email_input)
         val passwordInput = findViewById<TextInputEditText>(R.id.password_input)
         val signInButton = findViewById<Button>(R.id.sign_in_button)
-        progressBar = findViewById<ProgressBar>(R.id.progress_bar)
-        loginMsg = findViewById<TextView>(R.id.tv_login_msg)
+        progressBar = findViewById(R.id.progress_bar)
+        loginMsg = findViewById(R.id.tv_login_msg)
 
 
 

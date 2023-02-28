@@ -4,6 +4,7 @@
     <application>
         <activity android:name=".product.ui.ProductDetailActivity"/>
         <activity android:name=".login.ui.LoginActivity"/>
+        <activity android:name=".permission.PermissionActivity"/>
     </application>
 
 </manifest>

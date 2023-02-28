@@ -15,13 +15,17 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val findViewById = findViewById<TextView>(R.id.tv_home)
+        val findViewById = findViewById<Button>(R.id.tv_home)
         val btViewMVI = findViewById<Button>(R.id.bt_view_mvi)
+        val btPermission = findViewById<Button>(R.id.bt_permission)
         findViewById.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.PRODUCT_DETAIL_ACTIVITY).navigation()
         }
         btViewMVI.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.PRODUCT_LOGIN).navigation()
+        }
+        btPermission.setOnClickListener {
+            ARouter.getInstance().build(RoutConstant.Activity.REQUEST_PERMISSION).navigation()
         }
     }
 }

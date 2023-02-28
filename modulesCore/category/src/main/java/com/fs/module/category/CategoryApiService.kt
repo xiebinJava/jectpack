@@ -1,4 +1,4 @@
-package com.fs.module.category.product
+package com.fs.module.category
 
 import com.fs.libbase.netbase.CommonResponse
 import com.fs.module.category.login.data.LoginBean
