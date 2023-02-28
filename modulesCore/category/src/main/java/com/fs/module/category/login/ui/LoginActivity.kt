@@ -11,11 +11,13 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.fs.libbase.mvcbase.BaseComposeActivity
-import com.fs.libbase.mvvmbase.BaseActivity
 import com.fs.libutils.constants.RoutConstant.Activity.PRODUCT_LOGIN
 import com.fs.module.category.R
+import com.fs.module.category.login.ui.adapter.UserInfoAdapter
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -28,6 +30,8 @@ class LoginActivity : BaseComposeActivity() {
 
     private var loginMsg: TextView? = null
     private var progressBar: ProgressBar? = null
+    private var rvUserInfo: RecyclerView? = null
+
     private val loginViewModel by viewModels<LoginViewModel>()
 
     @SuppressLint("MissingInflatedId")
@@ -46,6 +50,7 @@ class LoginActivity : BaseComposeActivity() {
         val signInButton = findViewById<Button>(R.id.sign_in_button)
         progressBar = findViewById(R.id.progress_bar)
         loginMsg = findViewById(R.id.tv_login_msg)
+        rvUserInfo = findViewById(R.id.rv_user_info)
 
 
 
@@ -71,9 +76,26 @@ class LoginActivity : BaseComposeActivity() {
 
 
         lifecycleScope.launchWhenResumed {
-            loginViewModel.loginState.collect { loginState ->
-                loginMsg?.text = loginState.loginBean.toString()
-            }
+            loginViewModel.loginState.map { it.loginBean }.distinctUntilChanged()
+                .collect { loginBean ->
+                    if (loginBean != null) {
+                        Log.e("xiebin","z走了方法")
+                        loginMsg?.text = loginBean.toString()
+
+                    }
+                }
+
+
+        }
+
+        lifecycleScope.launchWhenStarted {
+            loginViewModel.loginState.map { it.listData }.distinctUntilChanged()
+                .collect { listData ->
+                    if (listData.isNotEmpty()) {
+                        rvUserInfo?.layoutManager = LinearLayoutManager(this@LoginActivity)
+                        rvUserInfo?.adapter = UserInfoAdapter(listData, this@LoginActivity)
+                    }
+                }
         }
 
 
@@ -87,7 +109,6 @@ class LoginActivity : BaseComposeActivity() {
                     ).show()
                 }
             }
-
         }
 
 

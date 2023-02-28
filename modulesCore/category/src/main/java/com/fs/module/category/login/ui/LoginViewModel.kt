@@ -44,10 +44,23 @@ class LoginViewModel @Inject constructor(private val loginRepository: LoginRepos
             when (val doLogin =
                 loginRepository.doLogin(_uiState.value.email, _uiState.value.password)) {
                 is DataResult.Success -> {
+                    val admin = doLogin.data?.admin
+                    val email = doLogin.data?.email
+                    val publicName = doLogin.data?.publicName
+                    val nickname = doLogin.data?.nickname
                     _uiState.update {
+                        it.addMessage(admin.toString())
+                        it.addMessage(email.toString()+"email")
+                        it.addMessage(publicName.toString())
+                        it.addMessage(nickname.toString())
+                        it.addMessage("xiebin1")
+                        it.addMessage("xiebin2")
+                        it.addMessage("xiebin3")
+
                         it.copy(
                             showProgressBar = false,
-                            loginBean = doLogin.data
+                            loginBean = doLogin.data,
+                            listData = _uiState.value.messages
                         )
                     }
                 }
