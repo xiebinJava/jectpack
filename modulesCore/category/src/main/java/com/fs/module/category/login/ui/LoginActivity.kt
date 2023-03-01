@@ -79,15 +79,16 @@ class LoginActivity : BaseComposeActivity() {
             loginViewModel.loginState.map { it.loginBean }.distinctUntilChanged()
                 .collect { loginBean ->
                     if (loginBean != null) {
-                        Log.e("xiebin","z走了方法")
                         loginMsg?.text = loginBean.toString()
 
                     }
                 }
-
-
         }
 
+
+        /**
+         * map操作符的作用是过滤uiState中的其他参数，distinctUntilChanged操作符是消抖，collect操作符是收集
+         */
         lifecycleScope.launchWhenStarted {
             loginViewModel.loginState.map { it.listData }.distinctUntilChanged()
                 .collect { listData ->

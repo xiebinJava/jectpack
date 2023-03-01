@@ -1,5 +1,6 @@
 package com.fs.libbase
 
+import FsCache
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fs.libbase.BuildConfig
@@ -15,5 +16,7 @@ open class BaseApplication : Application() {
             ARouter.openDebug()
         }
         ARouter.init(this)
+        //全局存储
+        FsCache.init(this)
     }
 }
