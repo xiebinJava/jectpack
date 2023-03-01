@@ -105,7 +105,7 @@ class LoginActivity : BaseComposeActivity() {
                 if (!loginState.userInfoBean?.rank.isNullOrEmpty()) {
                     Toast.makeText(
                         this@LoginActivity,
-                        loginState.userInfoBean?.rank.toString(),
+                        loginState.userInfoBean?.username+"已经登录",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

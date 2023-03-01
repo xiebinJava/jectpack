@@ -59,7 +59,28 @@ class ProductDetailActivity : BaseComposeActivity() {
 
             Box {
                 Column {
-                    Item(dataListInfo)
+                    Button(onClick = { getData() }) {
+                        Text(text = "点击进行网络请求")
+                    }
+
+                    Button(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp), onClick = {
+                        productDetailViewModel.addItems()
+                    }) {
+                        Text(text = "add Item")
+                    }
+
+                    Button(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp), onClick = {
+                        productDetailViewModel.removeItems()
+                    }) {
+                        Text(text = "remove Item")
+                    }
+                    Item(dataListInfo) { index ->
+                        clickItem(index)
+                    }
                 }
 
                 if (productUiState.isLoading) {
@@ -74,61 +95,6 @@ class ProductDetailActivity : BaseComposeActivity() {
     }
 
 
-    @SuppressLint("UnrememberedMutableState")
-    @Composable
-    private fun Item(dataListInfo: List<DataX>) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 10.dp, end = 10.dp)
-        ) {
-            Button(onClick = { getData() }) {
-                Text(text = "点击进行网络请求")
-            }
-
-            Button(modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 10.dp), onClick = {
-                productDetailViewModel.addItems()
-            }) {
-                Text(text = "add Item")
-            }
-
-            Button(modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 10.dp), onClick = {
-                productDetailViewModel.removeItems()
-            }) {
-                Text(text = "remove Item")
-            }
-
-            LazyColumn(content = {
-                items(count = dataListInfo.size, itemContent = { index ->
-                    Box(modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 10.dp, bottom = 10.dp)
-                        .clickable {
-                            clickItem(index)
-                        }
-                        .background(color = Color.DarkGray)) {
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 10.dp, bottom = 10.dp),
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 10.sp,
-                            color = Color.White,
-                            textAlign = TextAlign.Center,
-                            text = dataListInfo[index].title
-                        )
-                    }
-
-                })
-            })
-        }
-
-    }
-
     private fun clickItem(index: Int) {
         productDetailViewModel.getItemChange(index)
 
@@ -138,9 +104,6 @@ class ProductDetailActivity : BaseComposeActivity() {
     private fun getData() {
         productDetailViewModel.getProductMessage()
     }
-
-
-
 
 
 }

@@ -1,3 +1,6 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+}
 def rp = rootProject.ext
 if (rp.isDebug) {
     apply plugin: 'com.android.application'
@@ -27,6 +30,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         kapt {
             arguments { arg("AROUTER_MODULE_NAME", project.getName()) }
+        }
+        vectorDrawables {
+            useSupportLibrary true
         }
 
     }
@@ -60,11 +66,24 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = rp.compose_version
     }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 dependencies {
 
     implementation project(path: ':modulesBase:libBase')
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     kapt rp.libARouterCompiler
     implementation rp.hilt
     kapt rp.hiltCompiler
