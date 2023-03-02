@@ -21,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
         val btViewMVI = findViewById<Button>(R.id.bt_view_mvi)
         val btPermission = findViewById<Button>(R.id.bt_permission)
         val btCompose = findViewById<Button>(R.id.bt_compose)
+        val btCountry = findViewById<Button>(R.id.bt_country)
         findViewById.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.PRODUCT_DETAIL_ACTIVITY).navigation()
         }
@@ -34,5 +35,10 @@ class HomeActivity : AppCompatActivity() {
         btCompose.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.COMPOSE_ACTIVITY).navigation()
         }
+
+        btCountry.setOnClickListener {
+            ARouter.getInstance().build(RoutConstant.Activity.HOME_COUNTRY_SELECT).navigation()
+        }
+
     }
 }

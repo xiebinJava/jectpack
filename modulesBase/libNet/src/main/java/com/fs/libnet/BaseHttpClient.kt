@@ -119,6 +119,8 @@ abstract class BaseHttpClient : IApiEnvironment {
     }
 
 
+
+
     /**
      * 通用请求配置
      */

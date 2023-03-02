@@ -1,6 +1,11 @@
 package com.fs.libutils.utils
 
+import android.R
+import android.content.Context
 import android.text.TextUtils
+import org.json.JSONArray
+import java.io.IOException
+import java.io.InputStream
 
 object CommonUtils {
     fun getJSONType(bodyMsg: String): Boolean {
@@ -16,5 +21,16 @@ object CommonUtils {
         }
         return result
     }
+
+    fun getLocalJson(context: Context, localFile: String) : String{
+        return try {
+            val inputStream: InputStream = context.assets.open(localFile)
+            val json = inputStream.bufferedReader().use { it.readText() }
+            JSONArray(json).toString()
+        } catch (e: IOException) {
+            ""
+        }
+    }
+
 
 }

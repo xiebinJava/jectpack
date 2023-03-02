@@ -60,9 +60,5 @@ fun JectpackTheme(
         }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+
 }
