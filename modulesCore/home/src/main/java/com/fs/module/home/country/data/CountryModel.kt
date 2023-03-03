@@ -1,13 +1,14 @@
 package com.fs.module.home.country.data
 
 data class CountryModel(
-    val list: List<CountrySit>,
+    val list: List<CountryInfo>
 )
 
-data class CountrySit(
+data class CountryInfo(
     val areaList: List<Area>,
     val areaName: String,
     val linePosition: Int,
+    var isChose:Boolean = false
 )
 
 data class Area(
@@ -20,10 +21,10 @@ data class Area(
     val id: Int,
     val iso_code: String,
     val language: String,
-    val symbol: String,
+    val symbol: String
 )
 
 data class City(
     val city: String,
-    val city_code: String,
+    val city_code: String
 )

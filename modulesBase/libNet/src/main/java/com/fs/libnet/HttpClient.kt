@@ -12,6 +12,7 @@ object HttpClient : BaseHttpClient(){
 
     //https://www.wanandroid.com/blog/show/2
     private const val SERVER_URL_RELEASE = "https://www.wanandroid.com"
+    private const val SERVER_URL_TEST = "https://test-platform.whgxwl.com"
 
 
 
@@ -32,7 +33,7 @@ object HttpClient : BaseHttpClient(){
 
     override fun getTestUrl(): String = SERVER_URL_RELEASE
 
-    override fun getCommunityUrl(): String  = SERVER_URL_RELEASE
+    override fun getCommunityUrl(): String  = SERVER_URL_TEST
 
 
 }

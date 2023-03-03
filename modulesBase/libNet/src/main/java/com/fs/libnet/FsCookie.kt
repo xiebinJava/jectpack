@@ -18,19 +18,21 @@ class FsCookie : CookieJar {
 
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
         //过期的Cookie
-
         val invalidCookies =  ArrayList<Cookie>()
         //有效的Cookie
         val validCookies = ArrayList<Cookie>()
         val cookieString = FsCache.getString(Constant.COOKIE,"")
 
-        try {
-            //json转换为list
-            val type: Type = object : TypeToken<ArrayList<Cookie?>?>() {}.type
-            cache = Gson().fromJson<ArrayList<Cookie>>(cookieString,type)
-        } catch (e: Exception) {
-            e.printStackTrace()
+        if (cookieString?.isNotEmpty() == true){
+            try {
+                //json转换为list
+                val type: Type = object : TypeToken<ArrayList<Cookie?>?>() {}.type
+                cache = Gson().fromJson(cookieString,type)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
+
 
         for (cookie in cache) {
             if (cookie.expiresAt < System.currentTimeMillis()) {

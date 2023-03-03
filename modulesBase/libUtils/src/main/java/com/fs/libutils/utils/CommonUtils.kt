@@ -1,11 +1,18 @@
 package com.fs.libutils.utils
 
+import FsCache
 import android.R
 import android.content.Context
 import android.text.TextUtils
+import android.util.Log
+import com.google.gson.stream.JsonWriter
 import org.json.JSONArray
+import org.json.JSONObject
+import java.io.FileOutputStream
+import java.io.FileWriter
 import java.io.IOException
 import java.io.InputStream
+import java.io.OutputStreamWriter
 
 object CommonUtils {
     fun getJSONType(bodyMsg: String): Boolean {
@@ -22,14 +29,19 @@ object CommonUtils {
         return result
     }
 
-    fun getLocalJson(context: Context, localFile: String) : String{
+    fun getLocalJson(context: Context, localFile: String): String {
         return try {
             val inputStream: InputStream = context.assets.open(localFile)
             val json = inputStream.bufferedReader().use { it.readText() }
-            JSONArray(json).toString()
+            JSONObject(json).toString()
         } catch (e: IOException) {
             ""
         }
+    }
+
+    fun saveLocalJson(jsonString: String, key: String): Boolean {
+
+        return FsCache.put(key,jsonString)
     }
 
 

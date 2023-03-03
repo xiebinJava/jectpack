@@ -73,4 +73,5 @@ dependencies {
     api rp.library.activityCompose
     api rp.library.composeTool
     api rp.library.viewModelCompose
+    api "com.google.accompanist:accompanist-pager:0.18.0"
 }

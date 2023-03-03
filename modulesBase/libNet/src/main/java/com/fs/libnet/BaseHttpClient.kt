@@ -114,7 +114,7 @@ abstract class BaseHttpClient : IApiEnvironment {
     }
 
 
-    inline fun <reified ApiService> getCommunity(): ApiService {
+    inline fun <reified ApiService> getFsTestService(): ApiService {
         return retrofit1.create(ApiService::class.java)
     }
 

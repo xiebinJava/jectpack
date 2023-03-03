@@ -3,6 +3,7 @@
 
     <application>
         <activity android:name=".HomeActivity" />
+        <activity android:name=".country.ui.CountrySelectActivity"/>
     </application>
 
 </manifest>

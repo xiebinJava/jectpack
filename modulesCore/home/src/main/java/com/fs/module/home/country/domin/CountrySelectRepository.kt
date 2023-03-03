@@ -7,6 +7,8 @@ import com.fs.module.home.country.data.CountryModel
 interface CountrySelectRepository {
 
 
-    suspend fun getLocalCountryInfo(context: Context,localPath:String):DataResult<CountryModel>
+    suspend fun getLocalCountryInfo(localPath: String): DataResult<CountryModel>
+
+    suspend fun getRemoteCountryInfo(key: String): Boolean
 
 }
