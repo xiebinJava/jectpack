@@ -12,6 +12,8 @@ import retrofit2.HttpException
  * @explain
  *  接口请求封装
  */
+
+
 open class BaseRepository {
 
 

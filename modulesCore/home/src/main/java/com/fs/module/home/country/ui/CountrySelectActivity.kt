@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 @Route(path = RoutConstant.Activity.HOME_COUNTRY_SELECT)
 class CountrySelectActivity : BaseComposeActivity() {
 
-    val countryViewModel by viewModels<CountrySelectViewModel>()
+    private val countryViewModel by viewModels<CountrySelectViewModel>()
 
 
     @OptIn(ExperimentalPagerApi::class)
@@ -71,7 +71,7 @@ class CountrySelectActivity : BaseComposeActivity() {
                                 countryViewModel.selectArea,
                                 0f,
                                 1,
-                                true
+                                false
                             ), modifier = Modifier.fillMaxWidth()
                         ) { pageIndex ->
                             Box(modifier = Modifier.fillMaxHeight()) {

@@ -17,8 +17,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepository,
-    BaseRepository() {
+class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepository,BaseRepository() {
 
     private val homeApiService: HomeApiService by lazy {
         HttpClient.getFsTestService()
@@ -27,12 +26,11 @@ class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepositor
     override suspend fun getLocalCountryInfo(localPath: String): DataResult<CountryModel> {
         return try {
             val localJson = CommonUtils.getLocalJson(BaseApplication.context, localPath)
-            Log.e("xiebin11111",FsCache.getString(Constant.COUNTRY_JSON, "json").toString())
             val jsonString = FsCache.getString(Constant.COUNTRY_JSON, localJson)
             val fromJson = Gson().fromJson(jsonString, CountryModel::class.java)
             DataResult.Success(fromJson)
-        } catch (e:IOException){
-            DataResult.Error (-1, "解析失败", null)
+        } catch (e: IOException) {
+            DataResult.Error(-1, "解析失败", null)
         }
 
 
@@ -42,7 +40,6 @@ class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepositor
 
         val userInfo = homeApiService.getCountryInfo()
         val data = userInfo.data
-        Log.e("xiebin",key+"  "+data.toString())
         val toJson = Gson().toJson(data)
 
         return CommonUtils.saveLocalJson(toJson, key)
