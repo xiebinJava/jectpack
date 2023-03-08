@@ -19,10 +19,9 @@ import com.fs.module.home.country.data.Area
 
 
 @Composable
-fun rightColum(countryList: List<Area>?, selectIndex: Int, clickAreaItem: (index:Int) -> Unit) {
-
+fun rightColum(countryList: List<Area>?, selectIndex: Int, clickAreaItem: (index: Int) -> Unit) {
+    val size = countryList?.size
     LazyColumn(modifier = Modifier.width(150.dp)) {
-        val size = countryList?.size
         items(size!!) { index ->
             Box(
                 modifier = Modifier
@@ -34,7 +33,7 @@ fun rightColum(countryList: List<Area>?, selectIndex: Int, clickAreaItem: (index
 
                     }) {
                 Text(
-                    text = "国家："+countryList[index].countries_name +"货币:" + countryList[index].symbol,
+                    text = "国家：" + countryList[index].countries_name + "货币:" + countryList[index].symbol,
                     modifier = Modifier.align(alignment = Alignment.Center),
                     style = TextStyle(fontSize = 10.sp)
                 )

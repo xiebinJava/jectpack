@@ -20,10 +20,9 @@ import com.fs.module.home.country.data.CountryModel
 
 @Composable
 fun leftColum(countryList: CountryModel, selectIndex: Int, clickAreaItem: (index: Int) -> Unit) {
-
+    val size = countryList.list.size
+    countryList.list[selectIndex].isChose = true
     LazyColumn(modifier = Modifier.width(150.dp)) {
-        val size = countryList.list.size
-        countryList.list[selectIndex].isChose = true
         items(size) { index ->
             Box(
                 modifier = Modifier
