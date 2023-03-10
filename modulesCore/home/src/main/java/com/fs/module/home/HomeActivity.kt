@@ -7,11 +7,21 @@ import android.widget.Button
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fs.libnet.net.HttpCallBack
+import com.fs.libnet.net.ICallBack
+import com.fs.libnet.net.IHttpProcessor
 import com.fs.libutils.constants.RoutConstant
+import com.fs.module.home.country.data.CountryModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @Route(path = RoutConstant.Activity.HOME_ACTIVITY)
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var iHttpProcessor: IHttpProcessor
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +49,18 @@ class HomeActivity : AppCompatActivity() {
         btCountry.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.HOME_COUNTRY_SELECT).navigation()
         }
+
+        iHttpProcessor.post("", emptyMap(), object : HttpCallBack<CountryModel> {
+            override fun onSuccess(result: CountryModel?) {
+
+            }
+
+            override fun onFailure(e: String) {
+                super.onFailure(e)
+            }
+
+
+        })
 
     }
 }

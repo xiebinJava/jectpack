@@ -38,7 +38,7 @@ abstract class BaseHttpClient : IApiEnvironment {
         val JSON: MediaType = "application/json".toMediaType()
     }
 
-    private val client: OkHttpClient by lazy {
+     private val client: OkHttpClient by lazy {
 
         OkHttpClient.Builder().apply {
             connectTimeout(timeOut, TimeUnit.SECONDS)

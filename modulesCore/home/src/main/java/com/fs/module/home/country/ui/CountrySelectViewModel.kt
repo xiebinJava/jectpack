@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CountrySelectViewModel @Inject constructor(
-    private val countrySelectRepository: CountrySelectRepositoryImpl,
+    private val countrySelectRepository: CountrySelectRepository,
 ) : BaseViewModel() {
 
 

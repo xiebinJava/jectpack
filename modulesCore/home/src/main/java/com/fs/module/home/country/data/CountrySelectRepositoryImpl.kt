@@ -17,11 +17,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepository,BaseRepository() {
+class CountrySelectRepositoryImpl @Inject constructor(  private val homeApiService: HomeApiService) : CountrySelectRepository,BaseRepository() {
 
-    private val homeApiService: HomeApiService by lazy {
-        HttpClient.getFsTestService()
-    }
+//    private val homeApiService: HomeApiService by lazy {
+//        HttpClient.getFsTestService()
+//    }
 
     override suspend fun getLocalCountryInfo(localPath: String): DataResult<CountryModel> {
         return try {
@@ -41,7 +41,6 @@ class CountrySelectRepositoryImpl @Inject constructor() : CountrySelectRepositor
         val userInfo = homeApiService.getCountryInfo()
         val data = userInfo.data
         val toJson = Gson().toJson(data)
-
         return CommonUtils.saveLocalJson(toJson, key)
     }
 

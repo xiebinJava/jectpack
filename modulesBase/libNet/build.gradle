@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 def rp = rootProject.ext
 android {
@@ -34,5 +35,7 @@ android {
 dependencies {
 
     api  project(path: ':modulesBase:libUtils')
+    api rp.hilt
+    kapt rp.hiltCompiler
 
 }
