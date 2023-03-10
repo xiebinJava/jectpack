@@ -1,5 +1,7 @@
 # 目录结构
 
+项目使用技术：kotlin+jectpack(compose、hilt)+mvi\mvp\mvvm+组件化项目，内部包含了各种方式封装的网络请求，架构模式以及一些常用的功能点。
+
 ```
 .
 ├── README.md
