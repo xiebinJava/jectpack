@@ -1,4 +1,4 @@
-##目录结构
+#目录结构
 ```
 .
 ├── README.md
@@ -130,3 +130,43 @@
 ├── settings.gradle
 └── tree.txt
 ```
+
+##目录结构介绍
+```
+.
+├── app
+│   └── src
+│       └── main
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── local.properties
+├── modulesBase
+│   ├── libBase
+│   │   └── src
+│   ├── libNet
+│   │   └── src
+│   └── libUtils
+│       └── src
+├── modulesCore
+│   ├── category  分类模块
+│   │   ├── sampledata
+│   │   └── src
+│   └── home   首页模块
+│       └── src
+├── modulesPublic
+│   └── modulePay
+│       └── src
+├── settings.gradle
+└── tree.txt
+```
+项目采用组件化搭建
+app --- > 壳工程
+modulesBase ---> 基础组件，主要封装一些base和工具，比如：网络请求、工具类、base类、图片框架、各种第三方SDK
+modulesCore ---> 业务层组件，比如：首页、分类、我的
+modulesPublic ---> 公共业务逻辑，比如：支付  分享
+
+![img.png](img.png)
+
+
+
