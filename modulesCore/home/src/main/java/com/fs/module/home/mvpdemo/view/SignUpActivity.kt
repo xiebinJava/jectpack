@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.fs.libbase.mvpbase.BaseMVPActivity
-import com.fs.libnet.net.IHttpProcessor
 import com.fs.libutils.constants.RoutConstant
 import com.fs.module.home.R
-import com.fs.module.home.mvpdemo.model.LoginBean
+import com.fs.module.home.mvpdemo.model.data.LoginBean
 import com.fs.module.home.mvpdemo.model.SignUpModel
 import com.fs.module.home.mvpdemo.presenter.SignUpPresenter
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,9 +20,7 @@ class SignUpActivity : SignUpView, BaseMVPActivity<SignUpPresenter<SignUpView>, 
     @Inject
     lateinit var signUpModel:SignUpModel
 
-    /**
-     * 注册功能，通过P层调用
-     */
+
 
     override fun showSignUpMsg(loginBean: LoginBean) {
         Log.e("xievbin","注册成功")

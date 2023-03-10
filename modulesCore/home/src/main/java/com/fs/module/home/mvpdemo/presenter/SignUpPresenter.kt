@@ -1,8 +1,7 @@
 package com.fs.module.home.mvpdemo.presenter
 
 import com.fs.libbase.mvpbase.BasePresenter
-import com.fs.libbase.mvpbase.BaseView
-import com.fs.module.home.mvpdemo.model.LoginBean
+import com.fs.module.home.mvpdemo.model.data.LoginBean
 import com.fs.module.home.mvpdemo.model.OnSignUpListener
 import com.fs.module.home.mvpdemo.model.SignUpModel
 import com.fs.module.home.mvpdemo.view.SignUpView

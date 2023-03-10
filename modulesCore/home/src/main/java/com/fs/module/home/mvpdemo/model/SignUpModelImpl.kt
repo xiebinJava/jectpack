@@ -2,6 +2,7 @@ package com.fs.module.home.mvpdemo.model
 
 import com.fs.libnet.net.HttpCallBack
 import com.fs.libnet.net.IHttpProcessor
+import com.fs.module.home.mvpdemo.model.data.LoginBean
 import javax.inject.Inject
 
 class SignUpModelImpl @Inject constructor() : SignUpModel {

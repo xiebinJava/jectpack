@@ -1,4 +1,4 @@
-package com.fs.module.home.mvpdemo.model
+package com.fs.module.home.mvpdemo.model.data
 
 
 data class LoginBean(
