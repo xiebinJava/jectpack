@@ -1,6 +1,5 @@
-
 ##目录结构
-、、、
+```
 .
 ├── README.md
 ├── app
@@ -150,4 +149,4 @@
 │                           └── modulepay
 ├── settings.gradle
 └── tree.txt
-
+```
