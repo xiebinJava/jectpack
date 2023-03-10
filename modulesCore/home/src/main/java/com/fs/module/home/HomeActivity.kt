@@ -32,6 +32,7 @@ class HomeActivity : AppCompatActivity() {
         val btPermission = findViewById<Button>(R.id.bt_permission)
         val btCompose = findViewById<Button>(R.id.bt_compose)
         val btCountry = findViewById<Button>(R.id.bt_country)
+        val btMvp = findViewById<Button>(R.id.bt_mvp)
         findViewById.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.PRODUCT_DETAIL_ACTIVITY).navigation()
         }
@@ -48,6 +49,13 @@ class HomeActivity : AppCompatActivity() {
 
         btCountry.setOnClickListener {
             ARouter.getInstance().build(RoutConstant.Activity.HOME_COUNTRY_SELECT).navigation()
+        }
+
+
+        btMvp.setOnClickListener {
+
+            ARouter.getInstance().build(RoutConstant.Activity.HOME_Sign_Up).navigation()
+
         }
 
         iHttpProcessor.post("", emptyMap(), object : HttpCallBack<CountryModel> {

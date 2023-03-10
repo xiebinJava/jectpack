@@ -4,6 +4,7 @@
     <application>
         <activity android:name=".HomeActivity" />
         <activity android:name=".country.ui.CountrySelectActivity"/>
+        <activity android:name=".mvpdemo.view.SignUpActivity"/>
     </application>
 
 </manifest>
