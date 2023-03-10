@@ -15,15 +15,8 @@
 │                           ├── APP.kt
 │                           └── MainActivity.kt
 ├── build.gradle
-├── gradle.properties
-├── gradlew
-├── gradlew.bat
-├── local.properties
 ├── modulesBase
 │   ├── libBase
-│   │   ├── build.gradle
-│   │   ├── consumer-rules.pro
-│   │   ├── proguard-rules.pro
 │   │   └── src
 │   │       └── main
 │   │           ├── AndroidManifest.xml
@@ -52,9 +45,6 @@
 │   │                               ├── DataResult.kt
 │   │                               └── ErrorBean.kt
 │   ├── libNet
-│   │   ├── build.gradle
-│   │   ├── consumer-rules.pro
-│   │   ├── proguard-rules.pro
 │   │   └── src
 │   │       └── main
 │   │           ├── AndroidManifest.xml
@@ -74,9 +64,6 @@
 │   │                               ├── IHttpProcessor.kt
 │   │                               └── OtherProcessor.kt
 │   └── libUtils
-│       ├── build.gradle
-│       ├── consumer-rules.pro
-│       ├── proguard-rules.pro
 │       └── src
 │           └── main
 │               ├── AndroidManifest.xml
@@ -96,9 +83,6 @@
 │                                   └── CommonUtils.kt
 ├── modulesCore
 │   ├── category
-│   │   ├── build.gradle
-│   │   ├── proguard-rules.pro
-│   │   ├── sampledata
 │   │   └── src
 │   │       └── main
 │   │           ├── AndroidManifest.xml
@@ -117,7 +101,6 @@
 │   │                               └── ui
 │   └── home
 │       ├── build.gradle
-│       ├── proguard-rules.pro
 │       └── src
 │           └── main
 │               ├── AndroidManifest.xml
@@ -137,9 +120,6 @@
 │                                   └── mvpdemo
 ├── modulesPublic
 │   └── modulePay
-│       ├── build.gradle
-│       ├── consumer-rules.pro
-│       ├── proguard-rules.pro
 │       └── src
 │           └── main
 │               ├── AndroidManifest.xml
