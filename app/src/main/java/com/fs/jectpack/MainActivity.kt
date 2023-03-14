@@ -4,7 +4,11 @@ package com.fs.jectpack
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fs.jectpack.work.DownLoadImageWorker
 
 import com.fs.libutils.constants.RoutConstant
 import kotlinx.coroutines.*
@@ -16,7 +20,12 @@ class MainActivity : AppCompatActivity() {
        ARouter.getInstance().build(RoutConstant.Activity.HOME_ACTIVITY).navigation()
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
-            Log.e("xiebin","delay 2秒")
+            val downLoadWorker: WorkRequest =
+                OneTimeWorkRequestBuilder<DownLoadImageWorker>()
+                    .build()
+            WorkManager
+                .getInstance(this@MainActivity)
+                .enqueue(downLoadWorker)
         }
         Log.e("xiebin","onCreate")
 

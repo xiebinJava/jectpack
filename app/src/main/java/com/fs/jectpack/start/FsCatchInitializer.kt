@@ -14,7 +14,7 @@ class FsCatchInitializer : Initializer<String> {
         return "catch init"
     }
 
-    override fun dependencies(): List<Class<ARouterInitializer>> {
-        return listOf(ARouterInitializer::class.java)
+    override fun dependencies():List<Class<out Initializer<*>>>  {
+        return emptyList()
     }
 }

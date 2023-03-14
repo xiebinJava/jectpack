@@ -47,6 +47,8 @@ android {
 
 
 dependencies {
+
+
     api rp.libARouter
     kapt rp.libARouterCompiler
     api rp.mmkv
@@ -75,4 +77,9 @@ dependencies {
     api rp.library.viewModelCompose
     api "com.google.accompanist:accompanist-pager:0.18.0"
     api "androidx.startup:startup-runtime:1.1.1"
+    // (Java only)
+    api "androidx.work:work-runtime:2.8.0"
+    // Kotlin + coroutines
+    api "androidx.work:work-runtime-ktx:2.8.0"
+
 }

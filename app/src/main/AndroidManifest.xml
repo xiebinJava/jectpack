@@ -28,6 +28,9 @@
                 android:value="androidx.startup" />
             <meta-data  android:name="com.fs.jectpack.start.FsCatchInitializer"
                 android:value="androidx.startup" />
+<!--            <meta-data  android:name="com.fs.jectpack.start.WorkerInitializer"-->
+<!--                android:value="androidx.startup"-->
+<!--                />-->
         </provider>
 
 
