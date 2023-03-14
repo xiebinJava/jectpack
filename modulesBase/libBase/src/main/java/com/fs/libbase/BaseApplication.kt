@@ -18,12 +18,6 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = this
-        if (BuildConfig.DEBUG){
-            ARouter.openLog()
-            ARouter.openDebug()
-        }
-        ARouter.init(this)
-        //全局存储
-        FsCache.init(this)
+
     }
 }

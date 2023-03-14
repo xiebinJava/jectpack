@@ -16,6 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jectpack"
         tools:targetApi="31">
+
+        <!-- APP StartUp 需要配置的provider -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <!-- This entry makes ExampleLoggerInitializer discoverable. -->
+            <meta-data  android:name="com.fs.jectpack.start.ARouterInitializer"
+                android:value="androidx.startup" />
+            <meta-data  android:name="com.fs.jectpack.start.FsCatchInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,5 +42,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>

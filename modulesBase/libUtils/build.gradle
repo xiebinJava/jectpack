@@ -74,4 +74,5 @@ dependencies {
     api rp.library.composeTool
     api rp.library.viewModelCompose
     api "com.google.accompanist:accompanist-pager:0.18.0"
+    api "androidx.startup:startup-runtime:1.1.1"
 }
