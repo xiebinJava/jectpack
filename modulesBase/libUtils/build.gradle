@@ -82,4 +82,6 @@ dependencies {
     // Kotlin + coroutines
     api "androidx.work:work-runtime-ktx:2.8.0"
 
+    api "androidx.core:core-splashscreen:1.0.0"
+
 }

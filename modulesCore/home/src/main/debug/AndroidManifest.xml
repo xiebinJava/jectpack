@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:name="com.fs.libbase.BaseApplication"
-        android:theme="@style/Theme.Jectpack">
+        android:theme="@style/Theme.Jectpack.Splash">
         <activity
             android:name=".HomeActivity"
             android:exported="true">

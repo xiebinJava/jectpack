@@ -2,10 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name=".compose.ComposeActivity" />
-        <activity android:name=".product.ui.ProductDetailActivity" />
-        <activity android:name=".login.ui.LoginActivity" />
-        <activity android:name=".permission.PermissionActivity" />
+        <activity
+            android:name=".compose.ComposeActivity"
+            android:theme="@style/Theme.Jectpack" />
+        <activity
+            android:name=".product.ui.ProductDetailActivity"
+            android:theme="@style/Theme.Jectpack" />
+        <activity
+            android:name=".login.ui.LoginActivity"
+            android:theme="@style/Theme.Jectpack" />
+        <activity
+            android:name=".permission.PermissionActivity"
+            android:theme="@style/Theme.Jectpack" />
     </application>
 
 </manifest>

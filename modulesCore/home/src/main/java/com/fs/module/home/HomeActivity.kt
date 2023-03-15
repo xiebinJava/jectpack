@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.fs.libbase.mvcbase.BaseComposeActivity
 import com.fs.libnet.net.HttpCallBack
 import com.fs.libnet.net.ICallBack
 import com.fs.libnet.net.IHttpProcessor
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 @Route(path = RoutConstant.Activity.HOME_ACTIVITY)
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseComposeActivity() {
 
     @Inject
     lateinit var iHttpProcessor: IHttpProcessor

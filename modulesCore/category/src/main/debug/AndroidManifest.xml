@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Jectpack">
+        android:theme="@style/Theme.Jectpack.Splash">
         <activity
             android:name=".product.ui.ProductDetailActivity"
             android:exported="true">

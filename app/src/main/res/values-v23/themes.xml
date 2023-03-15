@@ -13,11 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
     <style name="Theme.Jectpack.Splash" parent="Theme.SplashScreen">
 
         <!--启动画面背景颜色-->
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@drawable/bg_splash</item>
         <!-- 启动画面icon图标：这里可以是图片、帧动画等-->
         <item name="windowSplashScreenAnimatedIcon">@drawable/bg_splash</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/white</item>
