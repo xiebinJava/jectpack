@@ -11,7 +11,7 @@ class WorkerInitializer :Initializer<WorkManager>{
     override fun create(context: Context): WorkManager {
         val configuration = Configuration.Builder().build()
         WorkManager.initialize(context, configuration)
-        Log.e("xiebin","work init 完成")
+        Log.e("xiebin","worker init 完成")
         return WorkManager.getInstance(context)
     }
 

@@ -28,10 +28,17 @@
                 android:value="androidx.startup" />
             <meta-data  android:name="com.fs.jectpack.start.FsCatchInitializer"
                 android:value="androidx.startup" />
-<!--            <meta-data  android:name="com.fs.jectpack.start.WorkerInitializer"-->
-<!--                android:value="androidx.startup"-->
-<!--                />-->
+            <meta-data android:name="androidx.work.WorkManagerInitializer"
+                android:authorities="${applicationId}.workmanager-init"
+                android:exported="false"
+                tools:node="remove"/>
+
+            <meta-data  android:name="com.fs.jectpack.start.WorkerInitializer"
+                android:value="androidx.startup"
+                />
         </provider>
+
+
 
 
 
