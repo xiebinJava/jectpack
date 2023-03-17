@@ -10,16 +10,16 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.Jectpack.Splash" parent="Theme.SplashScreen">
 
         <!--启动画面背景颜色-->
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@drawable/ic_splash</item>
         <!-- 启动画面icon图标：这里可以是图片、帧动画等-->
-        <item name="windowSplashScreenAnimatedIcon">@drawable/bg_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/white</item>
         <!-- icon动画在关闭之前显示的时长：最长时间为1000毫秒-->
         <item name="windowSplashScreenAnimationDuration">1000</item>

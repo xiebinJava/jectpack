@@ -1,4 +1,4 @@
-package com.fs.jectpack.start
+package com.fs.libutils.start
 
 import android.app.Application
 import android.content.Context

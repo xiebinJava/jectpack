@@ -2,10 +2,11 @@ package com.fs.jectpack
 
 import com.alibaba.android.arouter.launcher.ARouter
 import com.fs.libbase.BaseApplication
-import com.fs.libbase.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
+
+
 @HiltAndroidApp
-class APP : BaseApplication() {
+class APP  : BaseApplication(){
 
     override fun onCreate() {
         super.onCreate()

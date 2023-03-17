@@ -41,12 +41,16 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = rp.compose_version
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 
 
 dependencies {
-    implementation rp.hilt
+
+    api rp.hilt
     kapt rp.hiltCompiler
     api  project(path: ':modulesBase:libNet')
 

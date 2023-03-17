@@ -11,7 +11,7 @@ import androidx.work.WorkManager
 import androidx.work.WorkManagerInitializer
 import androidx.work.WorkRequest
 import com.alibaba.android.arouter.launcher.ARouter
-import com.fs.jectpack.start.WorkerInitializer
+import com.fs.libutils.start.WorkerInitializer
 import com.fs.jectpack.work.DownLoadImageWorker
 import com.fs.libbase.mvcbase.BaseComposeActivity
 

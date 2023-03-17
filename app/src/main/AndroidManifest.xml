@@ -26,10 +26,10 @@
             tools:node="merge">
             <!-- This entry makes ExampleLoggerInitializer discoverable. -->
             <meta-data
-                android:name="com.fs.jectpack.start.ARouterInitializer"
+                android:name="com.fs.libutils.start.ARouterInitializer"
                 android:value="androidx.startup" />
             <meta-data
-                android:name="com.fs.jectpack.start.FsCatchInitializer"
+                android:name="com.fs.libutils.start.FsCatchInitializer"
                 android:value="androidx.startup" />
             <meta-data
                 android:name="androidx.work.WorkManagerInitializer"
@@ -38,14 +38,15 @@
                 tools:node="remove" />
 
             <meta-data
-                android:name="com.fs.jectpack.start.WorkerInitializer"
+                android:name="com.fs.libutils.start.WorkerInitializer"
                 android:value="androidx.startup" />
         </provider>
 
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
