@@ -57,37 +57,41 @@ class CountrySelectActivity : BaseComposeActivity() {
                     ) {
                         val countryList = countryViewModel.state.countryInfo
 
-                        leftColum(
-                            countryList!!,
-                            countryViewModel.selectArea,
-                            clickAreaItem = { index ->
-                                countryViewModel.selectArea = index
-                                countryViewModel.setLeftBg(index)
-                            })
-
-                        VerticalPager(
-                            state = PagerState(
-                                countryList.list.size,
+                        if (countryList != null) {
+                            leftColum(
+                                countryList,
                                 countryViewModel.selectArea,
-                                0f,
-                                1,
-                                false
-                            ), modifier = Modifier.fillMaxWidth()
-                        ) { pageIndex ->
-                            Box(modifier = Modifier.fillMaxHeight()) {
-                                rightColum(
-                                    countryList.list[pageIndex].areaList,
-                                    countryViewModel.selectArea,
-                                    clickAreaItem = { index ->
-                                        Toast.makeText(
-                                            this@CountrySelectActivity,
-                                            "国际： $ countryViewModel.selectArea  货币： $index",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    })
-                            }
+                                clickAreaItem = { index ->
+                                    countryViewModel.selectArea = index
+                                    countryViewModel.setLeftBg(index)
+                                })
 
+                            VerticalPager(
+                                state = PagerState(
+                                    countryList.list.size,
+                                    countryViewModel.selectArea,
+                                    0f,
+                                    1,
+                                    false
+                                ), modifier = Modifier.fillMaxWidth()
+                            ) { pageIndex ->
+                                Box(modifier = Modifier.fillMaxHeight()) {
+                                    rightColum(
+                                        countryList.list[pageIndex].areaList,
+                                        countryViewModel.selectArea,
+                                        clickAreaItem = { index ->
+                                            Toast.makeText(
+                                                this@CountrySelectActivity,
+                                                "国际： $ countryViewModel.selectArea  货币： $index",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        })
+                                }
+
+                            }
                         }
+
+
 
 
                     }
